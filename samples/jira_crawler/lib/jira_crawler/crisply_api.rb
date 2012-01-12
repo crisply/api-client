@@ -67,7 +67,7 @@ module JiraCrawler
         logger.warn "Unable to POST activity: #{xml}\nResponse:#{e.response.body}"
       end
     rescue RestClient::InternalServerError, RestClient::RequestFailed, RestClient::Request::Unauthorized => e
-      logger.error e.response.body
+      logger.error e.response.body if e.response
       raise e
     end
 
