@@ -1,4 +1,4 @@
-= Crisply[http://www.crisply.com] Jira Crawler
+= Crisply[http://www.crisply.com] Activity Item Poster
 
 = Description
 
