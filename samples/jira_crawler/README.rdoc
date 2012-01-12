@@ -1,0 +1,36 @@
+= Crisply Jira Crawler[http://www.crisply.com]
+
+= Description
+
+This command-line app retrieves a Jira RSS/Atom feed and posts the feed entries to Crisply as Activity Items
+
+This app is only necessary when your Jira instance is behind the firewall and unreachable to Crisply. Otherwise, you should be using the Jira Source (under the Activity Sources tab -> Create New Source) in Crisply.
+
+= Prerequisites
+
+== Ruby Gems
+
+The following Ruby gems are required:
+
+* nokogiri
+* rest-client
+
+= Configuration
+
+* You can get your Crisply API key from the Profile page. Just click on your name in the upper right hand corner when logged into Crisply.
+* Create a copy of jira_crawler.yaml in an empty directory (see lib/jira_crawler.yaml)
+* Configure your Jira URL, username, password, Crisply API key and Crisply Account name
+
+= Running the crawler
+
+  ruby lib/jira_crawler.rb -c <directory containing jira_crawler.yaml>
+
+When the app exits normally, it writes out a file called jira_crawler.state that tracks the most recent Activity Item that was posted. This is used to optimize future runs so only newer activity is retrieved from Jira. If you need to 'start over', delete jira_crawler.state and it will go back (default 14 days or 100 activity items, whichever is less).
+
+= Exceptions
+
+The app will exit with a non-zero exit code if a fatal error occurs.
+
+The following conditions are _*not*_ considered fatal:
+* Lack of a mapping between a user in Jira and a user in Crisply (ex. "Fred Flintstone" isn't a Crisply user nor does any user in Crisply have the Alias "Fred Flintstone")
+* Duplicate activity (the same Jira feed entry can't be posted to a more than once (based on the Jira GUID))
