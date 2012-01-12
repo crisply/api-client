@@ -1,0 +1,30 @@
+= Crisply[http://www.crisply.com] Jira Crawler
+
+= Description
+
+This command-line app posts a single Activity Item to Crisply. This is intended to be sample code.
+
+= Prerequisites
+
+== Ruby Gems
+
+The following Ruby gems are required:
+
+* nokogiri
+* rest-client
+
+= Configuration
+
+* You can get your Crisply API key from your Crisply Profile page. Just click on your name in the upper right hand corner when logged into Crisply.
+
+= Running the app
+
+To see all of the command line options:
+
+  ruby post_activity.rb -h
+
+A bare bones example:
+
+  ruby post_activity.rb -a spacelysprockets -u "George Jetson" -k <your api key> --text "Fred Flintstone was here"
+
+
