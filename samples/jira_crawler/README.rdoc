@@ -1,4 +1,4 @@
-= Crisply Jira Crawler[http://www.crisply.com]
+= Crisply[http://www.crisply.com] Jira Crawler
 
 = Description
 
@@ -17,7 +17,7 @@ The following Ruby gems are required:
 
 = Configuration
 
-* You can get your Crisply API key from the Profile page. Just click on your name in the upper right hand corner when logged into Crisply.
+* You can get your Crisply API key from your Crisply Profile page. Just click on your name in the upper right hand corner when logged into Crisply.
 * Create a copy of jira_crawler.yaml in an empty directory (see lib/jira_crawler.yaml)
 * Configure your Jira URL, username, password, Crisply API key and Crisply Account name
 

@@ -1,13 +1,12 @@
-jira_url: http://tickets.opscode.com/browse/COOK
+jira_url: http://tickets.example.com/browse/YOURPROJECT
 jira_username: 
 jira_password:
 #Maximum number of days to look 'backward' for activity (default: 14)
 #jira_max_days_old:
 #Maximum number of items to retrieve from the feed (default: 100)
 #jira_max_items:
-crisply_account: sample
-crisply_deployment_domain: 
-crisply_api_key: Get your token from your Profile page
+crisply_account: The part of your Crisply Account URL before ".crisply.com"
+crisply_api_key: Get your token from your Profile page and paste it here
 #Log level:
 #0 = DEBUG
 #1 = INFO
