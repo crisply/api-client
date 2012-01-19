@@ -38,12 +38,12 @@ module JiraCrawler
       args = {:method => :get, :url => activity_stream_url, :user => @jira_username, :password => @jira_password}
       raw_feed = RestClient::Request.execute(args)
       @current_content = raw_feed
-      from_rss_xml(raw_feed)
+      from_rss_xml(raw_feed, project_name)
     end
 
     private
 
-    def from_rss_xml(raw_xml)
+    def from_rss_xml(raw_xml, project_name)
       xml = Nokogiri::XML(raw_xml)
       #We're relying on the fact that the Jira feed is well-formed and uses
       #a namespace; this won't work for a non-namespaced Atom feed (i.e. lacking the xmlns declaration in the root element)
@@ -54,7 +54,9 @@ module JiraCrawler
       if entries.size > 0
         entries.each do |atom_item|
           @current_content = atom_item
-          ai_list << split_item_atom(atom_item)
+          ai = split_item_atom(atom_item)
+          ai.tags << project_name
+          ai_list << ai
         end
       else
         logger.info("No <entry> elements found in the feed; This is expected if nothing new has happened since #{@jira_high_water_mark}")
