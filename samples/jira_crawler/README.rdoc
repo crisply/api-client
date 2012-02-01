@@ -2,7 +2,7 @@
 
 = Description
 
-This command-line app retrieves a Jira RSS/Atom feed and posts the feed entries to Crisply as Activity Items
+This command-line app retrieves a Jira RSS/Atom feed and posts the feed entries to Crisply as Activity Items.
 
 This app is only necessary when your Jira instance is behind the firewall and unreachable to Crisply. Otherwise, you should be using the Jira Source (under the Activity Sources tab -> Create New Source) in Crisply.
 
