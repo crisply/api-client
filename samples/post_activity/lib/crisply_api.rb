@@ -47,11 +47,11 @@ class CrisplyApi
     builder = Nokogiri::XML::Builder.new do |xml|
       xml.send('activity-item',
         'xmlns' => 'http://crisply.com/api/v1') {
-        [:guid, :text, :date, :type, :author, :duration].each do |attr|
+        [:guid, :text, :date, :type, :author, :duration, :project_id].each do |attr|
           value = options[attr]
           unless value.nil?
             logger.debug "Setting #{attr} to #{value}"
-            xml.send((attr.to_s + '_').to_sym, value)
+            xml.send((attr.to_s.gsub('_','-') + '_').to_sym, value)
           end
         end
         if options[:tag]

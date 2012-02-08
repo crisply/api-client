@@ -46,6 +46,10 @@ def parse(args)
       options[:guid] = guid
     end
 
+    opts.on("-p", "--project-id ID", "Crisply Project ID that this activity item should be associated with. The user must be assigned to this project.") do |project_id|
+      options[:project_id] = project_id
+    end
+
     opts.on('--duration DURATION', Float, "The total duration of the activity in hours (decimal ok).") do |dur|
       options[:duration] = dur
     end
