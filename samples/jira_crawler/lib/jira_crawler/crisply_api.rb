@@ -43,6 +43,7 @@ module JiraCrawler
             xml.date activity_item.date.xmlschema
             xml.type_ activity_item.activity_type
             xml.author activity_item.author
+            xml.duration activity_item.duration unless activity_item.duration.nil?
             if !activity_item.tags.empty?
               xml.tags {
                 activity_item.tags.each do |tag|
