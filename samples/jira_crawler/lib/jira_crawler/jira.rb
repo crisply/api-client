@@ -82,11 +82,22 @@ module JiraCrawler
 
       item_html_url = item.at_xpath('xmlns:link[@rel = "alternate"]')['href']
       base_url, item_id_fragment = item_html_url.split('browse/')
+
+      if item_id_fragment.nil?
+        ai.activity_type = ActivityItem::ACTIVITY_TYPE::DOCUMENT if item_html_url.include?('changelog/')
+        return ai
+      end
+
       item_id, garbage_afterward = item_id_fragment.split('?')
       item_xml_url = base_url + "si/jira.issueviews:issue-xml/#{item_id}/#{item_id}.xml?#{auth_string}"
       args = {:method => :get, :url => item_xml_url, :user => @jira_username, :password => @jira_password}
       logger.debug "Going off to #{item_xml_url.split('?').first}?[omitted] to get more info on this jira item."
-      item_xml = RestClient::Request.execute(args)
+
+      begin
+        item_xml = RestClient::Request.execute(args)
+      rescue RestClient::ResourceNotFound
+        return ai
+      end
 
       xml = Nokogiri::XML(item_xml).at_xpath('/rss/channel/item')
       ai.tags ||= []
