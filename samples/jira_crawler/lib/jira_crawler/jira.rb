@@ -72,12 +72,12 @@ module JiraCrawler
       html = Nokogiri::HTML(description)
 
       ai = ActivityItem.new
-      ai.activity_type = 'task'
+      ai.activity_type = ActivityItem::ACTIVITY_TYPE::TASK
       ai.author = (item.at_xpath('xmlns:author/xmlns:name') || item.at_xpath('xmlns:author/xmlns:email') || item.at_xpath('xmlns:author/usr:username')).inner_text rescue nil
       ai.date = Time.parse((item.at_xpath('xmlns:updated') || item.at_xpath('xmlns:published') || item.at_xpath('dc:date')).inner_text)
       ai.text = html.inner_text.strip
       ai.guid = item.at_xpath('xmlns:id').inner_text
-
+      ai.tags ||= []
       ai.duration = Jira.parse_duration(ai.text, item.at_xpath('xmlns:content'))
 
       item_html_url = item.at_xpath('xmlns:link[@rel = "alternate"]')['href']
@@ -92,7 +92,7 @@ module JiraCrawler
       item_xml_url = base_url + "si/jira.issueviews:issue-xml/#{item_id}/#{item_id}.xml?#{auth_string}"
       args = {:method => :get, :url => item_xml_url, :user => @jira_username, :password => @jira_password}
       logger.debug "Going off to #{item_xml_url.split('?').first}?[omitted] to get more info on this jira item."
-
+      
       begin
         item_xml = RestClient::Request.execute(args)
       rescue RestClient::ResourceNotFound
@@ -100,7 +100,6 @@ module JiraCrawler
       end
 
       xml = Nokogiri::XML(item_xml).at_xpath('/rss/channel/item')
-      ai.tags ||= []
       type = xml.at_xpath('type')
       if !type.nil?
         ai.tags << "type:#{type.inner_text}"

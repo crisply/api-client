@@ -10,6 +10,15 @@ require File.join(File.dirname(__FILE__),'jira_crawler/crisply_api')
 
 module JiraCrawler
   class ActivityItem
+    class ACTIVITY_TYPE
+      TASK = 'task'
+      CALENDAR = 'calendar'
+      EMAIL = 'email'
+      PHONE = 'phone'
+      DOCUMENT = 'document'
+      PLACE = 'place'
+    end
+    
     attr_accessor :text, :date, :tags, :guid, :author, :duration, :activity_type
   end
 end
