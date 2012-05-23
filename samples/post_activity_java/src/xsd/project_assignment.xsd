@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://crisply.com/api/v1"
+            xmlns="http://crisply.com/api/v1"
+            elementFormDefault="qualified"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.w3.org/2001/XMLSchema http://www.w3.org/2001/XMLSchema.xsd"
+>
+    <xs:element name="project-assignment" type="project-assignment"/>
+
+    <xs:complexType name="project-assignment">
+        <xs:all>
+            <xs:element name="hours-per-week" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="rate" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="project-id" type="xs:integer"/>
+            <xs:element name="user-id" type="xs:integer"/>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>

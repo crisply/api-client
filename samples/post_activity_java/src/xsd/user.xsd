@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://crisply.com/api/v1"
+            xmlns="http://crisply.com/api/v1"
+            elementFormDefault="qualified"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.w3.org/2001/XMLSchema http://www.w3.org/2001/XMLSchema.xsd"
+>
+    <xs:element name="user" type="user"/>
+    
+    <xs:complexType name="user">
+        <xs:all>
+            <xs:element name="first-name" type="xs:string" minOccurs="0"/>
+            <xs:element name="last-name" type="xs:string" minOccurs="0"/>
+            <xs:element name="external-name" type="xs:string" minOccurs="0"/>
+            <xs:element name="password" type="xs:string" minOccurs="0"/>
+            <xs:element name="email" type="xs:string" minOccurs="0"/>
+            <xs:element name="timezone" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Abu Dhabi"/>
+                        <xs:enumeration value="Adelaide"/>
+                        <xs:enumeration value="Alaska"/>
+                        <xs:enumeration value="Almaty"/>
+                        <xs:enumeration value="Amsterdam"/>
+                        <xs:enumeration value="Arizona"/>
+                        <xs:enumeration value="Astana"/>
+                        <xs:enumeration value="Athens"/>
+                        <xs:enumeration value="Atlantic Time (Canada)"/>
+                        <xs:enumeration value="Auckland"/>
+                        <xs:enumeration value="Azores"/>
+                        <xs:enumeration value="Baghdad"/>
+                        <xs:enumeration value="Baku"/>
+                        <xs:enumeration value="Bangkok"/>
+                        <xs:enumeration value="Beijing"/>
+                        <xs:enumeration value="Belgrade"/>
+                        <xs:enumeration value="Berlin"/>
+                        <xs:enumeration value="Bern"/>
+                        <xs:enumeration value="Bogota"/>
+                        <xs:enumeration value="Brasilia"/>
+                        <xs:enumeration value="Bratislava"/>
+                        <xs:enumeration value="Brisbane"/>
+                        <xs:enumeration value="Brussels"/>
+                        <xs:enumeration value="Bucharest"/>
+                        <xs:enumeration value="Budapest"/>
+                        <xs:enumeration value="Buenos Aires"/>
+                        <xs:enumeration value="Cairo"/>
+                        <xs:enumeration value="Canberra"/>
+                        <xs:enumeration value="Cape Verde Is."/>
+                        <xs:enumeration value="Caracas"/>
+                        <xs:enumeration value="Casablanca"/>
+                        <xs:enumeration value="Central America"/>
+                        <xs:enumeration value="Central Time (US &amp; Canada)"/>
+                        <xs:enumeration value="Chennai"/>
+                        <xs:enumeration value="Chihuahua"/>
+                        <xs:enumeration value="Chongqing"/>
+                        <xs:enumeration value="Copenhagen"/>
+                        <xs:enumeration value="Darwin"/>
+                        <xs:enumeration value="Dhaka"/>
+                        <xs:enumeration value="Dublin"/>
+                        <xs:enumeration value="Eastern Time (US &amp; Canada)"/>
+                        <xs:enumeration value="Edinburgh"/>
+                        <xs:enumeration value="Ekaterinburg"/>
+                        <xs:enumeration value="Fiji"/>
+                        <xs:enumeration value="Georgetown"/>
+                        <xs:enumeration value="Greenland"/>
+                        <xs:enumeration value="Guadalajara"/>
+                        <xs:enumeration value="Guam"/>
+                        <xs:enumeration value="Hanoi"/>
+                        <xs:enumeration value="Harare"/>
+                        <xs:enumeration value="Hawaii"/>
+                        <xs:enumeration value="Helsinki"/>
+                        <xs:enumeration value="Hobart"/>
+                        <xs:enumeration value="Hong Kong"/>
+                        <xs:enumeration value="Indiana (East)"/>
+                        <xs:enumeration value="International Date Line West"/>
+                        <xs:enumeration value="Irkutsk"/>
+                        <xs:enumeration value="Islamabad"/>
+                        <xs:enumeration value="Istanbul"/>
+                        <xs:enumeration value="Jakarta"/>
+                        <xs:enumeration value="Jerusalem"/>
+                        <xs:enumeration value="Kabul"/>
+                        <xs:enumeration value="Kamchatka"/>
+                        <xs:enumeration value="Karachi"/>
+                        <xs:enumeration value="Kathmandu"/>
+                        <xs:enumeration value="Kolkata"/>
+                        <xs:enumeration value="Krasnoyarsk"/>
+                        <xs:enumeration value="Kuala Lumpur"/>
+                        <xs:enumeration value="Kuwait"/>
+                        <xs:enumeration value="Kyev"/>
+                        <xs:enumeration value="La Paz"/>
+                        <xs:enumeration value="Lima"/>
+                        <xs:enumeration value="Lisbon"/>
+                        <xs:enumeration value="Ljubljana"/>
+                        <xs:enumeration value="London"/>
+                        <xs:enumeration value="Madrid"/>
+                        <xs:enumeration value="Magadan"/>
+                        <xs:enumeration value="Marshall Is."/>
+                        <xs:enumeration value="Mazatlan"/>
+                        <xs:enumeration value="Melbourne"/>
+                        <xs:enumeration value="Mexico City"/>
+                        <xs:enumeration value="Mid-Atlantic"/>
+                        <xs:enumeration value="Midway Island"/>
+                        <xs:enumeration value="Minsk"/>
+                        <xs:enumeration value="Monrovia"/>
+                        <xs:enumeration value="Monterrey"/>
+                        <xs:enumeration value="Moscow"/>
+                        <xs:enumeration value="Mountain Time (US &amp; Canada)"/>
+                        <xs:enumeration value="Mumbai"/>
+                        <xs:enumeration value="Muscat"/>
+                        <xs:enumeration value="Nairobi"/>
+                        <xs:enumeration value="New Caledonia"/>
+                        <xs:enumeration value="New Delhi"/>
+                        <xs:enumeration value="Newfoundland"/>
+                        <xs:enumeration value="Novosibirsk"/>
+                        <xs:enumeration value="Nuku'alofa"/>
+                        <xs:enumeration value="Osaka"/>
+                        <xs:enumeration value="Pacific Time (US &amp; Canada)"/>
+                        <xs:enumeration value="Paris"/>
+                        <xs:enumeration value="Perth"/>
+                        <xs:enumeration value="Port Moresby"/>
+                        <xs:enumeration value="Prague"/>
+                        <xs:enumeration value="Pretoria"/>
+                        <xs:enumeration value="Quito"/>
+                        <xs:enumeration value="Rangoon"/>
+                        <xs:enumeration value="Riga"/>
+                        <xs:enumeration value="Riyadh"/>
+                        <xs:enumeration value="Rome"/>
+                        <xs:enumeration value="Samoa"/>
+                        <xs:enumeration value="Santiago"/>
+                        <xs:enumeration value="Sapporo"/>
+                        <xs:enumeration value="Sarajevo"/>
+                        <xs:enumeration value="Saskatchewan"/>
+                        <xs:enumeration value="Seoul"/>
+                        <xs:enumeration value="Singapore"/>
+                        <xs:enumeration value="Skopje"/>
+                        <xs:enumeration value="Sofia"/>
+                        <xs:enumeration value="Solomon Is."/>
+                        <xs:enumeration value="Sri Jayawardenepura"/>
+                        <xs:enumeration value="St. Petersburg"/>
+                        <xs:enumeration value="Stockholm"/>
+                        <xs:enumeration value="Sydney"/>
+                        <xs:enumeration value="Taipei"/>
+                        <xs:enumeration value="Tallinn"/>
+                        <xs:enumeration value="Tashkent"/>
+                        <xs:enumeration value="Tbilisi"/>
+                        <xs:enumeration value="Tehran"/>
+                        <xs:enumeration value="Tijuana"/>
+                        <xs:enumeration value="Tokyo"/>
+                        <xs:enumeration value="UTC"/>
+                        <xs:enumeration value="Ulaan Bataar"/>
+                        <xs:enumeration value="Urumqi"/>
+                        <xs:enumeration value="Vienna"/>
+                        <xs:enumeration value="Vilnius"/>
+                        <xs:enumeration value="Vladivostok"/>
+                        <xs:enumeration value="Volgograd"/>
+                        <xs:enumeration value="Warsaw"/>
+                        <xs:enumeration value="Wellington"/>
+                        <xs:enumeration value="West Central Africa"/>
+                        <xs:enumeration value="Yakutsk"/>
+                        <xs:enumeration value="Yerevan"/>
+                        <xs:enumeration value="Zagreb"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="created-at" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="updated-at" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="account-admin" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="send-welcome-mail" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="status" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="active"/>
+                        <xs:enumeration value="inactive"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="auth-scheme" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="password"/>
+                        <xs:enumeration value="google"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:all>
+        <xs:attribute name="id" type="xs:integer" use="optional"/>
+        <xs:attribute name="uri" type="xs:string" use="optional"/>
+    </xs:complexType>
+</xs:schema>

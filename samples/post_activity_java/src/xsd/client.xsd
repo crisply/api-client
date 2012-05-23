@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://crisply.com/api/v1"
+            xmlns="http://crisply.com/api/v1"
+            elementFormDefault="qualified"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.w3.org/2001/XMLSchema http://www.w3.org/2001/XMLSchema.xsd"
+>
+    <xs:element name="client" type="client"/>
+    
+    <xs:complexType name="client">
+        <xs:all>
+            <xs:element name="created-at" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="default-client" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="email-address" type="xs:string" minOccurs="0"/>
+            <xs:element name="external-name" type="xs:string" minOccurs="0"/>
+            <xs:element name="mailing-address" type="xs:string" minOccurs="0"/>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+            <xs:element name="status" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="active"/>
+                        <xs:enumeration value="inactive"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="updated-at" type="xs:dateTime" minOccurs="0"/>
+        </xs:all>
+        <xs:attribute name="id" type="xs:integer" use="optional"/>
+        <xs:attribute name="uri" type="xs:string" use="optional"/>
+    </xs:complexType>
+</xs:schema>

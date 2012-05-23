@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://crisply.com/api/v1"
+            xmlns="http://crisply.com/api/v1"
+            elementFormDefault="qualified"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.w3.org/2001/XMLSchema http://www.w3.org/2001/XMLSchema.xsd"
+>
+    <xs:element name="activity-item" type="activity-item"/>
+    
+    <xs:complexType name="activity-item">
+        <xs:all>
+            <xs:element name="guid" type="xs:string"/>
+            <xs:element name="user-id" type="xs:integer" minOccurs="0"/>
+            <xs:element name="project-id" type="xs:integer" minOccurs="0"/>
+            <xs:element name="text">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="255"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="date" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="type" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="place"/>
+                        <xs:enumeration value="task"/>
+                        <xs:enumeration value="calendar"/>
+                        <xs:enumeration value="email"/>
+                        <xs:enumeration value="phone"/>
+                        <xs:enumeration value="document"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="author" type="xs:string" minOccurs="0"/>
+            <xs:element name="duration" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="tags" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="tag" type="xs:string" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>

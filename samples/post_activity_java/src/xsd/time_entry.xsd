@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://crisply.com/api/v1"
+            xmlns="http://crisply.com/api/v1"
+            elementFormDefault="qualified"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.w3.org/2001/XMLSchema http://www.w3.org/2001/XMLSchema.xsd"
+>
+    <xs:element name="time-entry" type="time-entry"/>
+    
+    <xs:complexType name="time-entry">
+        <xs:all>
+            <xs:element name="approval-date" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="date" type="xs:date"/>
+            <xs:element name="created-at" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="updated-at" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="user-id" type="xs:integer"/>
+            <xs:element name="project-id" type="xs:integer"/>
+            <xs:element name="description" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="4000"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="hours" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="rate" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="status" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="SUBMITTED"/>
+                        <xs:enumeration value="APPROVED"/>
+                        <xs:enumeration value="DRAFT"/>
+                        <xs:enumeration value="INVOICED"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:all>
+        <xs:attribute name="id" type="xs:integer" use="optional"/>
+    </xs:complexType>
+</xs:schema>

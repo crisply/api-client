@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://crisply.com/api/v1"
+            xmlns="http://crisply.com/api/v1"
+            elementFormDefault="qualified"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.w3.org/2001/XMLSchema http://www.w3.org/2001/XMLSchema.xsd"
+>
+    <xs:include schemaLocation="./project_assignment.xsd"/>
+    <xs:element name="project-assignments" type="project-assignments"/>
+    
+    <xs:complexType name="project-assignments">
+        <xs:sequence>
+            <xs:element name="count" type="xs:integer"/>
+            <xs:element name="total" type="xs:integer"/>
+            <xs:element name="offset" type="xs:integer"/>
+            <xs:element name="project-assignment" type="project-assignment" maxOccurs="200" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

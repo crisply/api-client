@@ -1,0 +1,25 @@
+= Crisply[http://www.crisply.com] API Usage Sample
+
+= Description
+
+This Java application demonstrates how to GET/POST data to and from your Crisply account. This is intended to be sample code.
+
+= Configuration
+
+* You can get your Crisply API key from your Crisply Profile page. Just click on your name in the upper right hand corner when logged into Crisply.
+
+= Running the app
+
+To see all of the command line options:
+
+  java -jar crisply_rest.jar -help
+
+Example to get the project list:
+  java -jar crisply_rest.jar -GET -apikey <your api key> -subdomain myaccount.crisply.com 
+  
+Example to get post activity:
+  java -jar crisply_rest.jar -POST -apikey <your api key> -subdomain myaccount.crisply.com -text "I'm posting to Crsiply!"
+
+
+
+

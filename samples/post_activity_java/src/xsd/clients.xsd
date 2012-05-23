@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://crisply.com/api/v1"
+            xmlns="http://crisply.com/api/v1"
+            elementFormDefault="qualified"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.w3.org/2001/XMLSchema http://www.w3.org/2001/XMLSchema.xsd"
+>
+    <xs:include schemaLocation="./client.xsd"/>
+    <xs:element name="clients" type="clients"/>
+    
+    <xs:complexType name="clients">
+        <xs:sequence>
+            <xs:element name="count" type="xs:integer"/>
+            <xs:element name="total" type="xs:integer"/>
+            <xs:element name="offset" type="xs:integer"/>
+            <xs:element name="client" type="client" maxOccurs="200" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
