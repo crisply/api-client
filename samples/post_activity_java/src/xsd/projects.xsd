@@ -14,7 +14,7 @@
             <xs:element name="count" type="xs:integer"/>
             <xs:element name="total" type="xs:integer"/>
             <xs:element name="offset" type="xs:integer"/>
-            <xs:element name="project" type="project" maxOccurs="200"/>
+            <xs:element name="project" type="project" maxOccurs="200" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>
